@@ -1,0 +1,402 @@
+/* === Base Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Card Reveal Animation */
+.card.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInCard 1s ease forwards;
+}
+
+.card.fade-in:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.card.fade-in:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Title Animation */
+.section-title {
+  animation: slideInTop 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@keyframes slideInTop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255,255,255,0.25);
+}
+/* Hover effect for glass cards */
+.card.glass:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 35px rgba(28, 27, 27, 0.3);
+  border-color: rgba(22, 21, 21, 0.3);
+}
+
+
+/* === Navigation Bar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(30, 30, 30, 0.9);
+  padding: 1rem 2rem;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #bbbbbb;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* === Hero Section === */
+.hero {
+  background: url('images/bgfortravelss.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 30rem;
+  text-align: center;
+  position: relative;
+  animation: backgroundFade 20s ease infinite alternate;
+}
+
+@keyframes backgroundFade {
+  0% {
+    filter: brightness(100%) contrast(100%);
+  }
+  100% {
+    filter: brightness(130%) contrast(120%);
+  }
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  animation: fadeSlideIn 1.5s ease-out forwards;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  color: #f5f5f5;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: #cccccc;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ff6f61, #ff9472);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.4);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 111, 97, 0.6);
+}
+
+/* === Attractions Section with Animated BG === */
+.attractions {
+  padding: 3rem 2rem;
+  background: linear-gradient(-45deg, #1c1c1c, #2a2a2a, #1f1f1f, #141414);
+  background-size: 400% 400%;
+  animation: bgWave 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes bgWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.attractions h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  animation: fadeInText 1.2s ease forwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* === Glassmorphic Card Design === */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 1.5rem;
+  max-width: 320px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.card h3 {
+  color: #ff6f61;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+  color: #ddd;
+}
+
+ .card p {
+  color: #cccccc;
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+.card li {
+  margin-bottom: 0.3rem;
+}
+
+/* === Animation for Scroll Reveal === */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  color: #888888;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+
+
+
+.card-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.15;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.shape.circle {
+  width: 50px;
+  height: 50px;
+  background: #ff6f61;
+  border-radius: 50%;
+  top: -15px;
+  left: -15px;
+  animation: floatCircle 6s infinite;
+}
+
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid #ff9472;
+  top: -15px;
+  right: -20px;
+  animation: floatTriangle 8s infinite;
+}
+
+.shape.blob {
+  width: 60px;
+  height: 50px;
+  background: #ffffff30;
+  border-radius: 60% 40% 50% 70%;
+  bottom: -20px;
+  right: -20px;
+  animation: floatBlob 9s infinite;
+}
+
+.shape.square {
+  width: 30px;
+  height: 30px;
+  background: #f5f5f5;
+  bottom: -15px;
+  left: -15px;
+  animation: floatSquare 7s infinite;
+}
+
+/* === Keyframes === */
+@keyframes floatCircle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px) scale(1.1); }
+}
+
+@keyframes floatTriangle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2) rotate(8deg); }
+}
+
+@keyframes floatSquare {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px) rotate(10deg); }
+}
+
+
+
+
+
+
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(35px);
+  animation: float-blobs 18s ease-in-out infinite;
+}
+
+.card::before {
+  width: 140px;
+  height: 140px;
+  background: #ff6f61;
+  top: -60px;
+  left: -60px;
+}
+
+.card::after {
+  width: 100px;
+  height: 100px;
+  background: #ffb88c;
+  bottom: -50px;
+  right: -40px;
+  animation-delay: 8s;
+}
+
+/* Smooth floating animation for shapes */
+@keyframes float-blobs {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+}
